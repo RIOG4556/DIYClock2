@@ -1,5 +1,5 @@
 # DIY-Lynx-Running-Clock
- Edittable Lynx Scoreboard Files
+ Editable Lynx Scoreboard Files
  
  This repo contains the basic files necessary to customize your output file from Electron.  You will need to have nodejs installed on the computer you clone this repo to.
  
