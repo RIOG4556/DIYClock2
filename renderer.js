@@ -15,8 +15,6 @@ const widthPanel = 64
 // this program should be lightweight enough to run on the Lynx computer without too much issue
 // Port can be customized, if needed
 const PORT = 5479
-// Host location varies depending on Lynx Data Location
-// const HOST = '192.168.0.17'
 const HOST = "127.0.0.1"
 server.bind(PORT, HOST)
 
@@ -33,15 +31,15 @@ server.on('listening', () => console.log('UDP Server is listening'))
 // Calling the PixelPusher Service to life
 const service = new PixelPusher.Service()
 
-// Placeholder variable to hold the data info
+// Placeholder variable to hold the data info - no touchie
 var actualDevice;
 
-//  This fucntion populates actualDevice variable
+//  This function populates actualDevice variable - no touchie
 service.on('discover', (device) => {
   actualDevice = device
 })
 
-// UDP server fucntion, accepting time, has an error catch, just in case
+// UDP server fucntion, accepting time, has an error catch, just in case - no touchie
 server.on('message', (msg, register) => {
   if (register.size == 536) {
       console.log('incomplete datagram')
@@ -54,7 +52,7 @@ server.on('message', (msg, register) => {
   }
 })
 
-// This function draws the time on the board.
+// This function draws the time on the board. - no touchie up top
 const timePost = (data) => {
   const canvas = document.createElement('canvas')
   canvas.width = widthPanel
@@ -83,14 +81,15 @@ const timePost = (data) => {
   }
 
   // Preprocessing is done, time to "draw" 
+  // fillStyle is customizable
   actualDevice.startRendering(() => {
     // Render Settings, fillStyle is customizable to your preferred color
     ctx.fillStyle = 'yellow'
     ctx.font = `${textSize}`
-    ctx.fillText(`${newTime}`, setBack, 16)
+    ctx.fillText(`${newTime}`, setBack, heightPanel)
 
     // Get data
-    const ImageData = ctx.getImageData(0, 0, 64, 16)
+    const ImageData = ctx.getImageData(0, 0, widthPanel, heightPanel)
 
     // Send data to LEDs
     actualDevice.setRGBABuffer(ImageData.data)
