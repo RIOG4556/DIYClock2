@@ -6,13 +6,15 @@
   Why use this over "Lynx-Running-Clock---Ready"?  
     -The other repo has an already disributable Electron application that allows for customization of the several functions within the renderer.js file, such as: Panel Height, Width, Typeface, Font Size, Font Color.
  
-  Basic Settings: 
+  Basic Settings for the scoreboard/softare: 
   
   The program runs on the same computer as FinishLynx, and uses the included "DIY - 2 Board" lss file which needs to be placed in your Lynx folder. (c:/Lynx, by default)
 
 Lynx scoreboard settings: Network (UDP) Port: 5479 IP Address: 127.0.0.1 Running Time: Normal
 
 This code outputs to a Raspberry Pi running on the same LAN (Pi simply needs to be on the same network range, ie: "192.168.0.xxx" as Lynx.
+
+To properly edit these files:
 
   From your terminal, "NPM RUN MAKE" when you are done editing to create your distributable Electron app.
   
