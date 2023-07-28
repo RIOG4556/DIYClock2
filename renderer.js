@@ -7,7 +7,7 @@ const server = dgram.createSocket('udp4')
 // Width must equal total width of all your panels
 // If you're running 2 16x32 panels, your height is 16, width 64
 const heightPanel = 16
-const widthPanel = 64
+const widthPanel = 32
 
 // Settings for the UDP Server
 // use 127.0.0.1 if you're running on the same machine
@@ -15,7 +15,7 @@ const widthPanel = 64
 // this program should be lightweight enough to run on the Lynx computer without too much issue
 // Port can be customized, if needed
 const PORT = 5479
-const HOST = "127.0.0.1"
+const HOST = "192.168.0.7"
 server.bind(PORT, HOST)
 
 
